@@ -1,28 +1,12 @@
-== README
+feedjira-with-rails
+================
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Example rails app to show how to connect rails with feedjira
 
-Things you may want to cover:
+Usage
+================
+1. run `bundle install` to install all necessary gems
+2. create your own config/database.yml (look at config/database.yml.example)
+3. run `bundle exec rake db:create db:migrate db:seed` to prepare database. Seeding database requires internet connection
+4. run `bundle exec rails s` to start the server
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
