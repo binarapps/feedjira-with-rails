@@ -1,0 +1,9 @@
+=@blog.url
+=form_for :download_entries, url: :blog_download_newest_entries do |f|
+  =f.label :entries_num, 'Number of entries to download'
+  =f.number_field :entries_num
+  =f.submit 'Download'
+%ol
+  -@entries.each do |entry|
+    %li
+      =render 'entries/entry', entry: entry
