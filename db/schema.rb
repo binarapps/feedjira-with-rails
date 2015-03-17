@@ -17,15 +17,15 @@ ActiveRecord::Schema.define(version: 20140924135435) do
   enable_extension "plpgsql"
 
   create_table "blogs", force: true do |t|
-    t.string   "url"
+    t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "entries", force: true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.string   "author"
+    t.text     "title"
+    t.text     "url"
+    t.text     "author"
     t.text     "content"
     t.datetime "published"
     t.integer  "blog_id"

@@ -6,4 +6,5 @@
     =entry.author
     =entry.published
     %p
-      =entry.content
+      =truncate_html(entry.content, length: 300, omission: '...(continued)')
+      
