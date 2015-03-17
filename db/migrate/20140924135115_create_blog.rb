@@ -1,7 +1,7 @@
 class CreateBlog < ActiveRecord::Migration
   def change
     create_table :blogs do |t|
-      t.string :url
+      t.text :url
       t.timestamps
     end
   end

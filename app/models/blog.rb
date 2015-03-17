@@ -1,14 +1,18 @@
 class Blog < ActiveRecord::Base
   has_many :entries, dependent: :destroy
-
+  
   after_create :download_entries_after_blog_create
 
+  #grab each feed
+  #update feed articles - download_entries_after_blog_create
+  
   def update_feed!
     @newest_entry = entries.order(published: :desc).first
+
     download_success_date = lambda { |url, feed|
       feed.entries.each do |entry|
-        next unless !@newest_entry || entry.published > @newest_entry.published
-        add_new_entry_from_feed(entry)
+         next unless !@newest_entry || entry.published > @newest_entry.published
+         add_new_entry_from_feed(entry)
       end
     }
     Feedjira::Feed.fetch_and_parse(
