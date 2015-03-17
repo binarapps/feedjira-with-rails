@@ -6,8 +6,10 @@ class Blog < ActiveRecord::Base
   def update_feed!
     @newest_entry = entries.order(published: :desc).first
     download_success_date = lambda { |url, feed|
-      next unless !@newest_entry || entry.published > @newest_entry.published
-      add_new_entry_from_feed(entry)
+      feed.entries.each do |entry|
+        next unless !@newest_entry || entry.published > @newest_entry.published
+        add_new_entry_from_feed(entry)
+      end
     }
     Feedjira::Feed.fetch_and_parse(
       url,
